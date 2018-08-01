@@ -1,0 +1,7 @@
+﻿subsystem_code=order-search
+subsystem_name=签名服务
+##远程访问
+remote_config_group=${filter.remote_config_group}
+
+#D:\work\tomcat-log\order-search
+log4jpath=${filter.log4jpath}

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>hikefa.core.web.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encodingChar</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:META-INF/ctx_main.xml
+		</param-value>
+	</context-param>
+
+	<!-- 被ContextLoaderListener读取 -->
+	<listener>
+		<listener-class>hikefa.core.remote.spring.server.CleanContextLoaderListener</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>initServlet</servlet-name>
+		<servlet-class>hikefa.core.web.ext.InitServlet</servlet-class>
+		<init-param>
+			<param-name>initclass</param-name>
+			<param-value>
+				hikefa.core.web.ext.init.InitGlobalInfo
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 
+	<servlet>
+		<servlet-name>initDBChangeHandleServlet</servlet-name>
+		<servlet-class>hikefa.core.remote.server.remoteserver.servlet.InitDBChangeHandleServlet</servlet-class>
+		<init-param>
+			<param-name>initclass</param-name>
+			<param-value>yspay.signature.remoteserver.impl.ExtDBChangeHandle</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>-->
+	<servlet>
+		<servlet-name>initFromDBServlet</servlet-name>
+		<servlet-class>hikefa.core.web.ext.InitFromDBServlet</servlet-class>
+		<init-param>
+			<param-name>initclass</param-name>
+			<param-value>
+			hikefa.core.web.ext.initdb.InitServerInfoForClient,
+			hikefa.core.web.ext.initdb.InitServerInfoForServer,
+			hikefa.core.web.ext.initdb.InitRemoteServerIPKey,
+			hikefa.core.web.ext.initdb.InitDBTime
+			</param-value>
+		</init-param>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+
+	<!-- log4j servlet -->
+	<servlet>
+		<servlet-name>log4jLoader</servlet-name>
+		<servlet-class>hikefa.core.web.ext.Log4jServlet</servlet-class>
+		<init-param>
+			<param-name>log4j</param-name>
+			<param-value>/WEB-INF/classes/conf/log4j.xml</param-value>
+		</init-param>
+		<load-on-startup>4</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>ContextLoader</servlet-name>
+		<servlet-class>hikefa.core.remote.spring.server.SpringContextLoaderServlet</servlet-class>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+
+	<!-- 远程服务 -->
+	<servlet>
+		<servlet-name>myremote</servlet-name>
+		<servlet-class>hikefa.core.remote.spring.server.MyRemoteSpringBeanDispatcherServlet</servlet-class>
+		<load-on-startup>6</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myremote</servlet-name>
+		<url-pattern>/hessian/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>com.alibaba.dubbo.remoting.http.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>7</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>welcome.jsp</welcome-file>
+	</welcome-file-list>
+	
+	 <servlet>
+      <servlet-name>DruidStatView</servlet-name>
+      <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+      <servlet-name>DruidStatView</servlet-name>
+      <url-pattern>/druid/*</url-pattern>
+  	</servlet-mapping>
+  	
+  	
+  	
+  	<filter>
+  		<filter-name>DruidWebStatFilter</filter-name>
+  		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+  	<init-param>
+  		<param-name>exclusions</param-name>
+  		<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+  	</init-param>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>DruidWebStatFilter</filter-name>
+  		<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+
+</web-app>

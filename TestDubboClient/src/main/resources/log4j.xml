@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<!-- <layout class="org.apache.log4j.PatternLayout"> <param name="ConversionPattern" 
+			value="%d - %c -%-4r [%t] %-5p %x - %m%n" /> </layout> -->
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />
+		</layout>
+		<!--限制输出级别 -->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+
+	<!-- additivity="false" -->
+	<logger name="com.alibaba.dubbo">   
+	        <priority value ="WARN"/>    
+	        <appender-ref ref="CONSOLE" />    
+	</logger>
+
+	<logger name="org.springframework">   
+	        <priority value ="WARN"/>    
+	        <appender-ref ref="CONSOLE" />    
+	</logger>
+
+	<!--通过<logger></logger>的定义可以将各个包中的类日志输出到不同的日志文件中 -->
+	<!-- 
+	<logger name="com.xxxx.xxx" additivity="false">
+		<level value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	 -->
+
+	<!--通过<category></category>的定义可以将各个包中的类日志输出到不同的日志文件中  
+	<category name="com.s2222">
+		<level value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="MAIL" />
+	</category>
+	-->
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</log4j:configuration>  

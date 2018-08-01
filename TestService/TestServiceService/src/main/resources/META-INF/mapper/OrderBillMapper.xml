@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yspay.trade.order.test.dao.mapper.OrderBillMapper" >
+  <resultMap id="BaseResultMap" type="yspay.trade.order.test.dao.model.OrderBill" >
+    <id column="TRADESN" property="tradesn" jdbcType="VARCHAR" />
+    <result column="SRC_USERCODE" property="srcUsercode" jdbcType="VARCHAR" />
+    <result column="SRC_CUSTID" property="srcCustid" jdbcType="VARCHAR" />
+    <result column="SRC_ACCOUNTID" property="srcAccountid" jdbcType="VARCHAR" />
+    <result column="SRC_IP" property="srcIp" jdbcType="VARCHAR" />
+    <result column="ORDERID" property="orderid" jdbcType="VARCHAR" />
+    <result column="MSGCODE" property="msgcode" jdbcType="VARCHAR" />
+    <result column="TRANTYPE" property="trantype" jdbcType="VARCHAR" />
+    <result column="BUSICODE" property="busicode" jdbcType="VARCHAR" />
+    <result column="ACCOUNTTYPE" property="accounttype" jdbcType="CHAR" />
+    <result column="SHOPDATE" property="shopdate" jdbcType="VARCHAR" />
+    <result column="PAYEE_USERCODE" property="payeeUsercode" jdbcType="VARCHAR" />
+    <result column="PAYEE_CUSTID" property="payeeCustid" jdbcType="VARCHAR" />
+    <result column="PAYEE_CUSTNAME" property="payeeCustname" jdbcType="VARCHAR" />
+    <result column="PAYEE_TEL" property="payeeTel" jdbcType="VARCHAR" />
+    <result column="PAYEE_ACCOUNTID" property="payeeAccountid" jdbcType="VARCHAR" />
+    <result column="PAYEE_FEEACCOUNTID" property="payeeFeeaccountid" jdbcType="VARCHAR" />
+    <result column="PAYER_USERCODE" property="payerUsercode" jdbcType="VARCHAR" />
+    <result column="PAYER_CUSTID" property="payerCustid" jdbcType="VARCHAR" />
+    <result column="PAYER_ACCOUNTID" property="payerAccountid" jdbcType="VARCHAR" />
+    <result column="PAYER_FEEACCOUNTID" property="payerFeeaccountid" jdbcType="VARCHAR" />
+    <result column="CURRENCY" property="currency" jdbcType="CHAR" />
+    <result column="ORDERAMOUNT" property="orderamount" jdbcType="DECIMAL" />
+    <result column="REMAINAMOUNT" property="remainamount" jdbcType="DECIMAL" />
+    <result column="PAIDAMOUNT" property="paidamount" jdbcType="DECIMAL" />
+    <result column="PAYEE_AMOUNT" property="payeeAmount" jdbcType="DECIMAL" />
+    <result column="REFUNDAMOUNT" property="refundamount" jdbcType="DECIMAL" />
+    <result column="ORDERNOTE" property="ordernote" jdbcType="VARCHAR" />
+    <result column="EXTRADATA" property="extradata" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="SUPPORTCARDS" property="supportcards" jdbcType="CHAR" />
+    <result column="PGURL" property="pgurl" jdbcType="VARCHAR" />
+    <result column="BGURL" property="bgurl" jdbcType="VARCHAR" />
+    <result column="TRANDATE" property="trandate" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="LASTTOPAYTIME" property="lasttopaytime" jdbcType="TIMESTAMP" />
+    <result column="EXPIRETIME" property="expiretime" jdbcType="TIMESTAMP" />
+    <result column="SRC_FEE" property="srcFee" jdbcType="DECIMAL" />
+    <result column="SRC_FEEFLAG" property="srcFeeflag" jdbcType="CHAR" />
+    <result column="PAYEE_FEE" property="payeeFee" jdbcType="DECIMAL" />
+    <result column="PAYEE_FEEFLAG" property="payeeFeeflag" jdbcType="CHAR" />
+    <result column="PAYER_FEEFLAG" property="payerFeeflag" jdbcType="CHAR" />
+    <result column="ACCOUNTDATE" property="accountdate" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TRANID" property="accountTranid" jdbcType="VARCHAR" />
+    <result column="ACCOUNT_TRANTIME" property="accountTrantime" jdbcType="TIMESTAMP" />
+    <result column="SRC_VOUCHERSN" property="srcVouchersn" jdbcType="VARCHAR" />
+    <result column="ORDER_VOUCHERSN" property="orderVouchersn" jdbcType="VARCHAR" />
+    <result column="FEE_VOUCHERSN" property="feeVouchersn" jdbcType="VARCHAR" />
+    <result column="STATE_CHANGETIME" property="stateChangetime" jdbcType="TIMESTAMP" />
+    <result column="STATE" property="state" jdbcType="CHAR" />
+    <result column="FEE_FLAG" property="feeFlag" jdbcType="CHAR" />
+    <result column="BUSINESSSTATE" property="businessstate" jdbcType="CHAR" />
+    <result column="QS_FLAG" property="qsFlag" jdbcType="CHAR" />
+    <result column="BUSNOTIFYFLAG" property="busnotifyflag" jdbcType="CHAR" />
+    <result column="JS_FLAG" property="jsFlag" jdbcType="CHAR" />
+    <result column="BUYERUSERCODE" property="buyerusercode" jdbcType="VARCHAR" />
+    <result column="BUSACCEPTUSERCODE" property="busacceptusercode" jdbcType="VARCHAR" />
+    <result column="BUSNOTIFYTIMES" property="busnotifytimes" jdbcType="DECIMAL" />
+    <result column="BUSISN" property="busisn" jdbcType="VARCHAR" />
+    <result column="FOREIGNAMOUNT" property="foreignamount" jdbcType="DECIMAL" />
+    <result column="RATE" property="rate" jdbcType="DECIMAL" />
+    <result column="FOREIGNCUR" property="foreigncur" jdbcType="CHAR" />
+    <result column="REMARK1" property="remark1" jdbcType="VARCHAR" />
+    <result column="REMARK2" property="remark2" jdbcType="VARCHAR" />
+    <result column="REMARK3" property="remark3" jdbcType="VARCHAR" />
+    <result column="MESSAGEVERSION" property="messageversion" jdbcType="VARCHAR" />
+    <result column="SEQ" property="seq" jdbcType="DECIMAL" />
+    <result column="SETTLEMENT_AMOUNT" property="settlementAmount" jdbcType="DECIMAL" />
+    <result column="MER_CHARSET" property="merCharset" jdbcType="VARCHAR" />
+    <result column="MER_OUTSIDE_USERID" property="merOutsideUserid" jdbcType="VARCHAR" />
+    <result column="MER_SUBMERCHANT_INFO" property="merSubmerchantInfo" jdbcType="VARCHAR" />
+    <result column="SRC_DOMIAN" property="srcDomian" jdbcType="VARCHAR" />
+    <result column="IS_SUPPORT_CUSTOMCHECKOUT" property="isSupportCustomcheckout" jdbcType="CHAR" />
+    <result column="IS_HIGHRISK_MERCHANT" property="isHighriskMerchant" jdbcType="CHAR" />
+    <result column="MER_TELEPHONE" property="merTelephone" jdbcType="VARCHAR" />
+    <result column="LINKTYPE" property="linktype" jdbcType="CHAR" />
+    <result column="ORG_NO" property="orgNo" jdbcType="VARCHAR" />
+    <result column="TRADE_SOURCE" property="tradeSource" jdbcType="CHAR" />
+    <result column="CONSIGNEE_INFO" property="consigneeInfo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    TRADESN, SRC_USERCODE, SRC_CUSTID, SRC_ACCOUNTID, SRC_IP, ORDERID, MSGCODE, TRANTYPE, 
+    BUSICODE, ACCOUNTTYPE, SHOPDATE, PAYEE_USERCODE, PAYEE_CUSTID, PAYEE_CUSTNAME, PAYEE_TEL, 
+    PAYEE_ACCOUNTID, PAYEE_FEEACCOUNTID, PAYER_USERCODE, PAYER_CUSTID, PAYER_ACCOUNTID, 
+    PAYER_FEEACCOUNTID, CURRENCY, ORDERAMOUNT, REMAINAMOUNT, PAIDAMOUNT, PAYEE_AMOUNT, 
+    REFUNDAMOUNT, ORDERNOTE, EXTRADATA, REMARK, SUPPORTCARDS, PGURL, BGURL, TRANDATE, 
+    CREATETIME, LASTTOPAYTIME, EXPIRETIME, SRC_FEE, SRC_FEEFLAG, PAYEE_FEE, PAYEE_FEEFLAG, 
+    PAYER_FEEFLAG, ACCOUNTDATE, ACCOUNT_TRANID, ACCOUNT_TRANTIME, SRC_VOUCHERSN, ORDER_VOUCHERSN, 
+    FEE_VOUCHERSN, STATE_CHANGETIME, STATE, FEE_FLAG, BUSINESSSTATE, QS_FLAG, BUSNOTIFYFLAG, 
+    JS_FLAG, BUYERUSERCODE, BUSACCEPTUSERCODE, BUSNOTIFYTIMES, BUSISN, FOREIGNAMOUNT, 
+    RATE, FOREIGNCUR, REMARK1, REMARK2, REMARK3, MESSAGEVERSION, SEQ, SETTLEMENT_AMOUNT, 
+    MER_CHARSET, MER_OUTSIDE_USERID, MER_SUBMERCHANT_INFO, SRC_DOMIAN, IS_SUPPORT_CUSTOMCHECKOUT, 
+    IS_HIGHRISK_MERCHANT, MER_TELEPHONE, LINKTYPE, ORG_NO, TRADE_SOURCE, CONSIGNEE_INFO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ORDERBILL
+    where TRADESN = #{tradesn,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ORDERBILL
+    where TRADESN = #{tradesn,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="yspay.trade.order.test.dao.model.OrderBill" >
+    insert into ORDERBILL (TRADESN, SRC_USERCODE, SRC_CUSTID, 
+      SRC_ACCOUNTID, SRC_IP, ORDERID, 
+      MSGCODE, TRANTYPE, BUSICODE, 
+      ACCOUNTTYPE, SHOPDATE, PAYEE_USERCODE, 
+      PAYEE_CUSTID, PAYEE_CUSTNAME, PAYEE_TEL, 
+      PAYEE_ACCOUNTID, PAYEE_FEEACCOUNTID, PAYER_USERCODE, 
+      PAYER_CUSTID, PAYER_ACCOUNTID, PAYER_FEEACCOUNTID, 
+      CURRENCY, ORDERAMOUNT, REMAINAMOUNT, 
+      PAIDAMOUNT, PAYEE_AMOUNT, REFUNDAMOUNT, 
+      ORDERNOTE, EXTRADATA, REMARK, 
+      SUPPORTCARDS, PGURL, BGURL, 
+      TRANDATE, CREATETIME, LASTTOPAYTIME, 
+      EXPIRETIME, SRC_FEE, SRC_FEEFLAG, 
+      PAYEE_FEE, PAYEE_FEEFLAG, PAYER_FEEFLAG, 
+      ACCOUNTDATE, ACCOUNT_TRANID, ACCOUNT_TRANTIME, 
+      SRC_VOUCHERSN, ORDER_VOUCHERSN, FEE_VOUCHERSN, 
+      STATE_CHANGETIME, STATE, FEE_FLAG, 
+      BUSINESSSTATE, QS_FLAG, BUSNOTIFYFLAG, 
+      JS_FLAG, BUYERUSERCODE, BUSACCEPTUSERCODE, 
+      BUSNOTIFYTIMES, BUSISN, FOREIGNAMOUNT, 
+      RATE, FOREIGNCUR, REMARK1, 
+      REMARK2, REMARK3, MESSAGEVERSION, 
+      SEQ, SETTLEMENT_AMOUNT, MER_CHARSET, 
+      MER_OUTSIDE_USERID, MER_SUBMERCHANT_INFO, SRC_DOMIAN, 
+      IS_SUPPORT_CUSTOMCHECKOUT, IS_HIGHRISK_MERCHANT, 
+      MER_TELEPHONE, LINKTYPE, ORG_NO, 
+      TRADE_SOURCE, CONSIGNEE_INFO)
+    values (#{tradesn,jdbcType=VARCHAR}, #{srcUsercode,jdbcType=VARCHAR}, #{srcCustid,jdbcType=VARCHAR}, 
+      #{srcAccountid,jdbcType=VARCHAR}, #{srcIp,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{msgcode,jdbcType=VARCHAR}, #{trantype,jdbcType=VARCHAR}, #{busicode,jdbcType=VARCHAR}, 
+      #{accounttype,jdbcType=CHAR}, #{shopdate,jdbcType=VARCHAR}, #{payeeUsercode,jdbcType=VARCHAR}, 
+      #{payeeCustid,jdbcType=VARCHAR}, #{payeeCustname,jdbcType=VARCHAR}, #{payeeTel,jdbcType=VARCHAR}, 
+      #{payeeAccountid,jdbcType=VARCHAR}, #{payeeFeeaccountid,jdbcType=VARCHAR}, #{payerUsercode,jdbcType=VARCHAR}, 
+      #{payerCustid,jdbcType=VARCHAR}, #{payerAccountid,jdbcType=VARCHAR}, #{payerFeeaccountid,jdbcType=VARCHAR}, 
+      #{currency,jdbcType=CHAR}, #{orderamount,jdbcType=DECIMAL}, #{remainamount,jdbcType=DECIMAL}, 
+      #{paidamount,jdbcType=DECIMAL}, #{payeeAmount,jdbcType=DECIMAL}, #{refundamount,jdbcType=DECIMAL}, 
+      #{ordernote,jdbcType=VARCHAR}, #{extradata,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{supportcards,jdbcType=CHAR}, #{pgurl,jdbcType=VARCHAR}, #{bgurl,jdbcType=VARCHAR}, 
+      #{trandate,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{lasttopaytime,jdbcType=TIMESTAMP}, 
+      #{expiretime,jdbcType=TIMESTAMP}, #{srcFee,jdbcType=DECIMAL}, #{srcFeeflag,jdbcType=CHAR}, 
+      #{payeeFee,jdbcType=DECIMAL}, #{payeeFeeflag,jdbcType=CHAR}, #{payerFeeflag,jdbcType=CHAR}, 
+      #{accountdate,jdbcType=VARCHAR}, #{accountTranid,jdbcType=VARCHAR}, #{accountTrantime,jdbcType=TIMESTAMP}, 
+      #{srcVouchersn,jdbcType=VARCHAR}, #{orderVouchersn,jdbcType=VARCHAR}, #{feeVouchersn,jdbcType=VARCHAR}, 
+      #{stateChangetime,jdbcType=TIMESTAMP}, #{state,jdbcType=CHAR}, #{feeFlag,jdbcType=CHAR}, 
+      #{businessstate,jdbcType=CHAR}, #{qsFlag,jdbcType=CHAR}, #{busnotifyflag,jdbcType=CHAR}, 
+      #{jsFlag,jdbcType=CHAR}, #{buyerusercode,jdbcType=VARCHAR}, #{busacceptusercode,jdbcType=VARCHAR}, 
+      #{busnotifytimes,jdbcType=DECIMAL}, #{busisn,jdbcType=VARCHAR}, #{foreignamount,jdbcType=DECIMAL}, 
+      #{rate,jdbcType=DECIMAL}, #{foreigncur,jdbcType=CHAR}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, #{messageversion,jdbcType=VARCHAR}, 
+      #{seq,jdbcType=DECIMAL}, #{settlementAmount,jdbcType=DECIMAL}, #{merCharset,jdbcType=VARCHAR}, 
+      #{merOutsideUserid,jdbcType=VARCHAR}, #{merSubmerchantInfo,jdbcType=VARCHAR}, #{srcDomian,jdbcType=VARCHAR}, 
+      #{isSupportCustomcheckout,jdbcType=CHAR}, #{isHighriskMerchant,jdbcType=CHAR}, 
+      #{merTelephone,jdbcType=VARCHAR}, #{linktype,jdbcType=CHAR}, #{orgNo,jdbcType=VARCHAR}, 
+      #{tradeSource,jdbcType=CHAR}, #{consigneeInfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="yspay.trade.order.test.dao.model.OrderBill" >
+    insert into ORDERBILL
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tradesn != null" >
+        TRADESN,
+      </if>
+      <if test="srcUsercode != null" >
+        SRC_USERCODE,
+      </if>
+      <if test="srcCustid != null" >
+        SRC_CUSTID,
+      </if>
+      <if test="srcAccountid != null" >
+        SRC_ACCOUNTID,
+      </if>
+      <if test="srcIp != null" >
+        SRC_IP,
+      </if>
+      <if test="orderid != null" >
+        ORDERID,
+      </if>
+      <if test="msgcode != null" >
+        MSGCODE,
+      </if>
+      <if test="trantype != null" >
+        TRANTYPE,
+      </if>
+      <if test="busicode != null" >
+        BUSICODE,
+      </if>
+      <if test="accounttype != null" >
+        ACCOUNTTYPE,
+      </if>
+      <if test="shopdate != null" >
+        SHOPDATE,
+      </if>
+      <if test="payeeUsercode != null" >
+        PAYEE_USERCODE,
+      </if>
+      <if test="payeeCustid != null" >
+        PAYEE_CUSTID,
+      </if>
+      <if test="payeeCustname != null" >
+        PAYEE_CUSTNAME,
+      </if>
+      <if test="payeeTel != null" >
+        PAYEE_TEL,
+      </if>
+      <if test="payeeAccountid != null" >
+        PAYEE_ACCOUNTID,
+      </if>
+      <if test="payeeFeeaccountid != null" >
+        PAYEE_FEEACCOUNTID,
+      </if>
+      <if test="payerUsercode != null" >
+        PAYER_USERCODE,
+      </if>
+      <if test="payerCustid != null" >
+        PAYER_CUSTID,
+      </if>
+      <if test="payerAccountid != null" >
+        PAYER_ACCOUNTID,
+      </if>
+      <if test="payerFeeaccountid != null" >
+        PAYER_FEEACCOUNTID,
+      </if>
+      <if test="currency != null" >
+        CURRENCY,
+      </if>
+      <if test="orderamount != null" >
+        ORDERAMOUNT,
+      </if>
+      <if test="remainamount != null" >
+        REMAINAMOUNT,
+      </if>
+      <if test="paidamount != null" >
+        PAIDAMOUNT,
+      </if>
+      <if test="payeeAmount != null" >
+        PAYEE_AMOUNT,
+      </if>
+      <if test="refundamount != null" >
+        REFUNDAMOUNT,
+      </if>
+      <if test="ordernote != null" >
+        ORDERNOTE,
+      </if>
+      <if test="extradata != null" >
+        EXTRADATA,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="supportcards != null" >
+        SUPPORTCARDS,
+      </if>
+      <if test="pgurl != null" >
+        PGURL,
+      </if>
+      <if test="bgurl != null" >
+        BGURL,
+      </if>
+      <if test="trandate != null" >
+        TRANDATE,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="lasttopaytime != null" >
+        LASTTOPAYTIME,
+      </if>
+      <if test="expiretime != null" >
+        EXPIRETIME,
+      </if>
+      <if test="srcFee != null" >
+        SRC_FEE,
+      </if>
+      <if test="srcFeeflag != null" >
+        SRC_FEEFLAG,
+      </if>
+      <if test="payeeFee != null" >
+        PAYEE_FEE,
+      </if>
+      <if test="payeeFeeflag != null" >
+        PAYEE_FEEFLAG,
+      </if>
+      <if test="payerFeeflag != null" >
+        PAYER_FEEFLAG,
+      </if>
+      <if test="accountdate != null" >
+        ACCOUNTDATE,
+      </if>
+      <if test="accountTranid != null" >
+        ACCOUNT_TRANID,
+      </if>
+      <if test="accountTrantime != null" >
+        ACCOUNT_TRANTIME,
+      </if>
+      <if test="srcVouchersn != null" >
+        SRC_VOUCHERSN,
+      </if>
+      <if test="orderVouchersn != null" >
+        ORDER_VOUCHERSN,
+      </if>
+      <if test="feeVouchersn != null" >
+        FEE_VOUCHERSN,
+      </if>
+      <if test="stateChangetime != null" >
+        STATE_CHANGETIME,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="feeFlag != null" >
+        FEE_FLAG,
+      </if>
+      <if test="businessstate != null" >
+        BUSINESSSTATE,
+      </if>
+      <if test="qsFlag != null" >
+        QS_FLAG,
+      </if>
+      <if test="busnotifyflag != null" >
+        BUSNOTIFYFLAG,
+      </if>
+      <if test="jsFlag != null" >
+        JS_FLAG,
+      </if>
+      <if test="buyerusercode != null" >
+        BUYERUSERCODE,
+      </if>
+      <if test="busacceptusercode != null" >
+        BUSACCEPTUSERCODE,
+      </if>
+      <if test="busnotifytimes != null" >
+        BUSNOTIFYTIMES,
+      </if>
+      <if test="busisn != null" >
+        BUSISN,
+      </if>
+      <if test="foreignamount != null" >
+        FOREIGNAMOUNT,
+      </if>
+      <if test="rate != null" >
+        RATE,
+      </if>
+      <if test="foreigncur != null" >
+        FOREIGNCUR,
+      </if>
+      <if test="remark1 != null" >
+        REMARK1,
+      </if>
+      <if test="remark2 != null" >
+        REMARK2,
+      </if>
+      <if test="remark3 != null" >
+        REMARK3,
+      </if>
+      <if test="messageversion != null" >
+        MESSAGEVERSION,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="settlementAmount != null" >
+        SETTLEMENT_AMOUNT,
+      </if>
+      <if test="merCharset != null" >
+        MER_CHARSET,
+      </if>
+      <if test="merOutsideUserid != null" >
+        MER_OUTSIDE_USERID,
+      </if>
+      <if test="merSubmerchantInfo != null" >
+        MER_SUBMERCHANT_INFO,
+      </if>
+      <if test="srcDomian != null" >
+        SRC_DOMIAN,
+      </if>
+      <if test="isSupportCustomcheckout != null" >
+        IS_SUPPORT_CUSTOMCHECKOUT,
+      </if>
+      <if test="isHighriskMerchant != null" >
+        IS_HIGHRISK_MERCHANT,
+      </if>
+      <if test="merTelephone != null" >
+        MER_TELEPHONE,
+      </if>
+      <if test="linktype != null" >
+        LINKTYPE,
+      </if>
+      <if test="orgNo != null" >
+        ORG_NO,
+      </if>
+      <if test="tradeSource != null" >
+        TRADE_SOURCE,
+      </if>
+      <if test="consigneeInfo != null" >
+        CONSIGNEE_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tradesn != null" >
+        #{tradesn,jdbcType=VARCHAR},
+      </if>
+      <if test="srcUsercode != null" >
+        #{srcUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="srcCustid != null" >
+        #{srcCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="srcAccountid != null" >
+        #{srcAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="srcIp != null" >
+        #{srcIp,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcode != null" >
+        #{msgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="trantype != null" >
+        #{trantype,jdbcType=VARCHAR},
+      </if>
+      <if test="busicode != null" >
+        #{busicode,jdbcType=VARCHAR},
+      </if>
+      <if test="accounttype != null" >
+        #{accounttype,jdbcType=CHAR},
+      </if>
+      <if test="shopdate != null" >
+        #{shopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeUsercode != null" >
+        #{payeeUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeCustid != null" >
+        #{payeeCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeCustname != null" >
+        #{payeeCustname,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeTel != null" >
+        #{payeeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountid != null" >
+        #{payeeAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeFeeaccountid != null" >
+        #{payeeFeeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerUsercode != null" >
+        #{payerUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payerCustid != null" >
+        #{payerCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountid != null" >
+        #{payerAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerFeeaccountid != null" >
+        #{payerFeeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        #{currency,jdbcType=CHAR},
+      </if>
+      <if test="orderamount != null" >
+        #{orderamount,jdbcType=DECIMAL},
+      </if>
+      <if test="remainamount != null" >
+        #{remainamount,jdbcType=DECIMAL},
+      </if>
+      <if test="paidamount != null" >
+        #{paidamount,jdbcType=DECIMAL},
+      </if>
+      <if test="payeeAmount != null" >
+        #{payeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamount != null" >
+        #{refundamount,jdbcType=DECIMAL},
+      </if>
+      <if test="ordernote != null" >
+        #{ordernote,jdbcType=VARCHAR},
+      </if>
+      <if test="extradata != null" >
+        #{extradata,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supportcards != null" >
+        #{supportcards,jdbcType=CHAR},
+      </if>
+      <if test="pgurl != null" >
+        #{pgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bgurl != null" >
+        #{bgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="trandate != null" >
+        #{trandate,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttopaytime != null" >
+        #{lasttopaytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiretime != null" >
+        #{expiretime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srcFee != null" >
+        #{srcFee,jdbcType=DECIMAL},
+      </if>
+      <if test="srcFeeflag != null" >
+        #{srcFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="payeeFee != null" >
+        #{payeeFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payeeFeeflag != null" >
+        #{payeeFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="payerFeeflag != null" >
+        #{payerFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="accountdate != null" >
+        #{accountdate,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTranid != null" >
+        #{accountTranid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTrantime != null" >
+        #{accountTrantime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srcVouchersn != null" >
+        #{srcVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderVouchersn != null" >
+        #{orderVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="feeVouchersn != null" >
+        #{feeVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="stateChangetime != null" >
+        #{stateChangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="feeFlag != null" >
+        #{feeFlag,jdbcType=CHAR},
+      </if>
+      <if test="businessstate != null" >
+        #{businessstate,jdbcType=CHAR},
+      </if>
+      <if test="qsFlag != null" >
+        #{qsFlag,jdbcType=CHAR},
+      </if>
+      <if test="busnotifyflag != null" >
+        #{busnotifyflag,jdbcType=CHAR},
+      </if>
+      <if test="jsFlag != null" >
+        #{jsFlag,jdbcType=CHAR},
+      </if>
+      <if test="buyerusercode != null" >
+        #{buyerusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="busacceptusercode != null" >
+        #{busacceptusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="busnotifytimes != null" >
+        #{busnotifytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="busisn != null" >
+        #{busisn,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignamount != null" >
+        #{foreignamount,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="foreigncur != null" >
+        #{foreigncur,jdbcType=CHAR},
+      </if>
+      <if test="remark1 != null" >
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="messageversion != null" >
+        #{messageversion,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementAmount != null" >
+        #{settlementAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merCharset != null" >
+        #{merCharset,jdbcType=VARCHAR},
+      </if>
+      <if test="merOutsideUserid != null" >
+        #{merOutsideUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="merSubmerchantInfo != null" >
+        #{merSubmerchantInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="srcDomian != null" >
+        #{srcDomian,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupportCustomcheckout != null" >
+        #{isSupportCustomcheckout,jdbcType=CHAR},
+      </if>
+      <if test="isHighriskMerchant != null" >
+        #{isHighriskMerchant,jdbcType=CHAR},
+      </if>
+      <if test="merTelephone != null" >
+        #{merTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linktype != null" >
+        #{linktype,jdbcType=CHAR},
+      </if>
+      <if test="orgNo != null" >
+        #{orgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeSource != null" >
+        #{tradeSource,jdbcType=CHAR},
+      </if>
+      <if test="consigneeInfo != null" >
+        #{consigneeInfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="yspay.trade.order.test.dao.model.OrderBill" >
+    update ORDERBILL
+    <set >
+      <if test="srcUsercode != null" >
+        SRC_USERCODE = #{srcUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="srcCustid != null" >
+        SRC_CUSTID = #{srcCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="srcAccountid != null" >
+        SRC_ACCOUNTID = #{srcAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="srcIp != null" >
+        SRC_IP = #{srcIp,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcode != null" >
+        MSGCODE = #{msgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="trantype != null" >
+        TRANTYPE = #{trantype,jdbcType=VARCHAR},
+      </if>
+      <if test="busicode != null" >
+        BUSICODE = #{busicode,jdbcType=VARCHAR},
+      </if>
+      <if test="accounttype != null" >
+        ACCOUNTTYPE = #{accounttype,jdbcType=CHAR},
+      </if>
+      <if test="shopdate != null" >
+        SHOPDATE = #{shopdate,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeUsercode != null" >
+        PAYEE_USERCODE = #{payeeUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeCustid != null" >
+        PAYEE_CUSTID = #{payeeCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeCustname != null" >
+        PAYEE_CUSTNAME = #{payeeCustname,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeTel != null" >
+        PAYEE_TEL = #{payeeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeAccountid != null" >
+        PAYEE_ACCOUNTID = #{payeeAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeFeeaccountid != null" >
+        PAYEE_FEEACCOUNTID = #{payeeFeeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerUsercode != null" >
+        PAYER_USERCODE = #{payerUsercode,jdbcType=VARCHAR},
+      </if>
+      <if test="payerCustid != null" >
+        PAYER_CUSTID = #{payerCustid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerAccountid != null" >
+        PAYER_ACCOUNTID = #{payerAccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="payerFeeaccountid != null" >
+        PAYER_FEEACCOUNTID = #{payerFeeaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null" >
+        CURRENCY = #{currency,jdbcType=CHAR},
+      </if>
+      <if test="orderamount != null" >
+        ORDERAMOUNT = #{orderamount,jdbcType=DECIMAL},
+      </if>
+      <if test="remainamount != null" >
+        REMAINAMOUNT = #{remainamount,jdbcType=DECIMAL},
+      </if>
+      <if test="paidamount != null" >
+        PAIDAMOUNT = #{paidamount,jdbcType=DECIMAL},
+      </if>
+      <if test="payeeAmount != null" >
+        PAYEE_AMOUNT = #{payeeAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="refundamount != null" >
+        REFUNDAMOUNT = #{refundamount,jdbcType=DECIMAL},
+      </if>
+      <if test="ordernote != null" >
+        ORDERNOTE = #{ordernote,jdbcType=VARCHAR},
+      </if>
+      <if test="extradata != null" >
+        EXTRADATA = #{extradata,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="supportcards != null" >
+        SUPPORTCARDS = #{supportcards,jdbcType=CHAR},
+      </if>
+      <if test="pgurl != null" >
+        PGURL = #{pgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="bgurl != null" >
+        BGURL = #{bgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="trandate != null" >
+        TRANDATE = #{trandate,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lasttopaytime != null" >
+        LASTTOPAYTIME = #{lasttopaytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expiretime != null" >
+        EXPIRETIME = #{expiretime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srcFee != null" >
+        SRC_FEE = #{srcFee,jdbcType=DECIMAL},
+      </if>
+      <if test="srcFeeflag != null" >
+        SRC_FEEFLAG = #{srcFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="payeeFee != null" >
+        PAYEE_FEE = #{payeeFee,jdbcType=DECIMAL},
+      </if>
+      <if test="payeeFeeflag != null" >
+        PAYEE_FEEFLAG = #{payeeFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="payerFeeflag != null" >
+        PAYER_FEEFLAG = #{payerFeeflag,jdbcType=CHAR},
+      </if>
+      <if test="accountdate != null" >
+        ACCOUNTDATE = #{accountdate,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTranid != null" >
+        ACCOUNT_TRANID = #{accountTranid,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTrantime != null" >
+        ACCOUNT_TRANTIME = #{accountTrantime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="srcVouchersn != null" >
+        SRC_VOUCHERSN = #{srcVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderVouchersn != null" >
+        ORDER_VOUCHERSN = #{orderVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="feeVouchersn != null" >
+        FEE_VOUCHERSN = #{feeVouchersn,jdbcType=VARCHAR},
+      </if>
+      <if test="stateChangetime != null" >
+        STATE_CHANGETIME = #{stateChangetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="feeFlag != null" >
+        FEE_FLAG = #{feeFlag,jdbcType=CHAR},
+      </if>
+      <if test="businessstate != null" >
+        BUSINESSSTATE = #{businessstate,jdbcType=CHAR},
+      </if>
+      <if test="qsFlag != null" >
+        QS_FLAG = #{qsFlag,jdbcType=CHAR},
+      </if>
+      <if test="busnotifyflag != null" >
+        BUSNOTIFYFLAG = #{busnotifyflag,jdbcType=CHAR},
+      </if>
+      <if test="jsFlag != null" >
+        JS_FLAG = #{jsFlag,jdbcType=CHAR},
+      </if>
+      <if test="buyerusercode != null" >
+        BUYERUSERCODE = #{buyerusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="busacceptusercode != null" >
+        BUSACCEPTUSERCODE = #{busacceptusercode,jdbcType=VARCHAR},
+      </if>
+      <if test="busnotifytimes != null" >
+        BUSNOTIFYTIMES = #{busnotifytimes,jdbcType=DECIMAL},
+      </if>
+      <if test="busisn != null" >
+        BUSISN = #{busisn,jdbcType=VARCHAR},
+      </if>
+      <if test="foreignamount != null" >
+        FOREIGNAMOUNT = #{foreignamount,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null" >
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="foreigncur != null" >
+        FOREIGNCUR = #{foreigncur,jdbcType=CHAR},
+      </if>
+      <if test="remark1 != null" >
+        REMARK1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        REMARK2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        REMARK3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="messageversion != null" >
+        MESSAGEVERSION = #{messageversion,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementAmount != null" >
+        SETTLEMENT_AMOUNT = #{settlementAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="merCharset != null" >
+        MER_CHARSET = #{merCharset,jdbcType=VARCHAR},
+      </if>
+      <if test="merOutsideUserid != null" >
+        MER_OUTSIDE_USERID = #{merOutsideUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="merSubmerchantInfo != null" >
+        MER_SUBMERCHANT_INFO = #{merSubmerchantInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="srcDomian != null" >
+        SRC_DOMIAN = #{srcDomian,jdbcType=VARCHAR},
+      </if>
+      <if test="isSupportCustomcheckout != null" >
+        IS_SUPPORT_CUSTOMCHECKOUT = #{isSupportCustomcheckout,jdbcType=CHAR},
+      </if>
+      <if test="isHighriskMerchant != null" >
+        IS_HIGHRISK_MERCHANT = #{isHighriskMerchant,jdbcType=CHAR},
+      </if>
+      <if test="merTelephone != null" >
+        MER_TELEPHONE = #{merTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="linktype != null" >
+        LINKTYPE = #{linktype,jdbcType=CHAR},
+      </if>
+      <if test="orgNo != null" >
+        ORG_NO = #{orgNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeSource != null" >
+        TRADE_SOURCE = #{tradeSource,jdbcType=CHAR},
+      </if>
+      <if test="consigneeInfo != null" >
+        CONSIGNEE_INFO = #{consigneeInfo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TRADESN = #{tradesn,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yspay.trade.order.test.dao.model.OrderBill" >
+    update ORDERBILL
+    set SRC_USERCODE = #{srcUsercode,jdbcType=VARCHAR},
+      SRC_CUSTID = #{srcCustid,jdbcType=VARCHAR},
+      SRC_ACCOUNTID = #{srcAccountid,jdbcType=VARCHAR},
+      SRC_IP = #{srcIp,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      MSGCODE = #{msgcode,jdbcType=VARCHAR},
+      TRANTYPE = #{trantype,jdbcType=VARCHAR},
+      BUSICODE = #{busicode,jdbcType=VARCHAR},
+      ACCOUNTTYPE = #{accounttype,jdbcType=CHAR},
+      SHOPDATE = #{shopdate,jdbcType=VARCHAR},
+      PAYEE_USERCODE = #{payeeUsercode,jdbcType=VARCHAR},
+      PAYEE_CUSTID = #{payeeCustid,jdbcType=VARCHAR},
+      PAYEE_CUSTNAME = #{payeeCustname,jdbcType=VARCHAR},
+      PAYEE_TEL = #{payeeTel,jdbcType=VARCHAR},
+      PAYEE_ACCOUNTID = #{payeeAccountid,jdbcType=VARCHAR},
+      PAYEE_FEEACCOUNTID = #{payeeFeeaccountid,jdbcType=VARCHAR},
+      PAYER_USERCODE = #{payerUsercode,jdbcType=VARCHAR},
+      PAYER_CUSTID = #{payerCustid,jdbcType=VARCHAR},
+      PAYER_ACCOUNTID = #{payerAccountid,jdbcType=VARCHAR},
+      PAYER_FEEACCOUNTID = #{payerFeeaccountid,jdbcType=VARCHAR},
+      CURRENCY = #{currency,jdbcType=CHAR},
+      ORDERAMOUNT = #{orderamount,jdbcType=DECIMAL},
+      REMAINAMOUNT = #{remainamount,jdbcType=DECIMAL},
+      PAIDAMOUNT = #{paidamount,jdbcType=DECIMAL},
+      PAYEE_AMOUNT = #{payeeAmount,jdbcType=DECIMAL},
+      REFUNDAMOUNT = #{refundamount,jdbcType=DECIMAL},
+      ORDERNOTE = #{ordernote,jdbcType=VARCHAR},
+      EXTRADATA = #{extradata,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      SUPPORTCARDS = #{supportcards,jdbcType=CHAR},
+      PGURL = #{pgurl,jdbcType=VARCHAR},
+      BGURL = #{bgurl,jdbcType=VARCHAR},
+      TRANDATE = #{trandate,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      LASTTOPAYTIME = #{lasttopaytime,jdbcType=TIMESTAMP},
+      EXPIRETIME = #{expiretime,jdbcType=TIMESTAMP},
+      SRC_FEE = #{srcFee,jdbcType=DECIMAL},
+      SRC_FEEFLAG = #{srcFeeflag,jdbcType=CHAR},
+      PAYEE_FEE = #{payeeFee,jdbcType=DECIMAL},
+      PAYEE_FEEFLAG = #{payeeFeeflag,jdbcType=CHAR},
+      PAYER_FEEFLAG = #{payerFeeflag,jdbcType=CHAR},
+      ACCOUNTDATE = #{accountdate,jdbcType=VARCHAR},
+      ACCOUNT_TRANID = #{accountTranid,jdbcType=VARCHAR},
+      ACCOUNT_TRANTIME = #{accountTrantime,jdbcType=TIMESTAMP},
+      SRC_VOUCHERSN = #{srcVouchersn,jdbcType=VARCHAR},
+      ORDER_VOUCHERSN = #{orderVouchersn,jdbcType=VARCHAR},
+      FEE_VOUCHERSN = #{feeVouchersn,jdbcType=VARCHAR},
+      STATE_CHANGETIME = #{stateChangetime,jdbcType=TIMESTAMP},
+      STATE = #{state,jdbcType=CHAR},
+      FEE_FLAG = #{feeFlag,jdbcType=CHAR},
+      BUSINESSSTATE = #{businessstate,jdbcType=CHAR},
+      QS_FLAG = #{qsFlag,jdbcType=CHAR},
+      BUSNOTIFYFLAG = #{busnotifyflag,jdbcType=CHAR},
+      JS_FLAG = #{jsFlag,jdbcType=CHAR},
+      BUYERUSERCODE = #{buyerusercode,jdbcType=VARCHAR},
+      BUSACCEPTUSERCODE = #{busacceptusercode,jdbcType=VARCHAR},
+      BUSNOTIFYTIMES = #{busnotifytimes,jdbcType=DECIMAL},
+      BUSISN = #{busisn,jdbcType=VARCHAR},
+      FOREIGNAMOUNT = #{foreignamount,jdbcType=DECIMAL},
+      RATE = #{rate,jdbcType=DECIMAL},
+      FOREIGNCUR = #{foreigncur,jdbcType=CHAR},
+      REMARK1 = #{remark1,jdbcType=VARCHAR},
+      REMARK2 = #{remark2,jdbcType=VARCHAR},
+      REMARK3 = #{remark3,jdbcType=VARCHAR},
+      MESSAGEVERSION = #{messageversion,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=DECIMAL},
+      SETTLEMENT_AMOUNT = #{settlementAmount,jdbcType=DECIMAL},
+      MER_CHARSET = #{merCharset,jdbcType=VARCHAR},
+      MER_OUTSIDE_USERID = #{merOutsideUserid,jdbcType=VARCHAR},
+      MER_SUBMERCHANT_INFO = #{merSubmerchantInfo,jdbcType=VARCHAR},
+      SRC_DOMIAN = #{srcDomian,jdbcType=VARCHAR},
+      IS_SUPPORT_CUSTOMCHECKOUT = #{isSupportCustomcheckout,jdbcType=CHAR},
+      IS_HIGHRISK_MERCHANT = #{isHighriskMerchant,jdbcType=CHAR},
+      MER_TELEPHONE = #{merTelephone,jdbcType=VARCHAR},
+      LINKTYPE = #{linktype,jdbcType=CHAR},
+      ORG_NO = #{orgNo,jdbcType=VARCHAR},
+      TRADE_SOURCE = #{tradeSource,jdbcType=CHAR},
+      CONSIGNEE_INFO = #{consigneeInfo,jdbcType=VARCHAR}
+    where TRADESN = #{tradesn,jdbcType=VARCHAR}
+  </update>
+</mapper>

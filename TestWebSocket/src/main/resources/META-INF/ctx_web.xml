@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/mvc  
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- 使用locations属性定义多个配置文件 -->
+		<property name="locations">
+			<list>
+				<value>classpath:META-INF/init.properties</value>
+			</list>
+		</property>
+	</bean>
+	<context:component-scan base-package="com.yspay.websocket"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/demo/*.do"/>
+			<bean class="com.yspay.websocket.intercepter.SetCommonRequestAttributeInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+	<!-- <websocket:handlers>
+		<websocket:mapping path="/myHandler" handler="myHandler"/>
+		
+			<websocket:handshake-interceptors>
+				<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+			</websocket:handshake-interceptors>
+	</websocket:handlers> 
+
+	<bean id="myHandler" class="com.yspay.websocket.hander.MyHandler"/>-->
+
+	<task:scheduled-tasks>
+		<task:scheduled ref="runClientMapInfo" method="run" cron="0/5 * * * * ?"/>
+	</task:scheduled-tasks>
+	
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<bean
+				class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+				<property name="order" value="2" />
+				<property name="prefix" value="/WEB-INF/views/" />
+				<property name="suffix" value=".jsp" />
+			</bean>
+		</property>
+	</bean>
+</beans>

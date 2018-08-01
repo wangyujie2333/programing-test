@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+    <dubbo:application name="openapi-direct-pay1" owner="Page1" organization="ysepay-online111"/>
+
+<!-- 
+
+ 	<dubbo:registry address="multicast://224.5.6.7:1234?unicast=false" />
+ -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181?client=curator"/>
+
+    <!--uncomment this if you want to test dubbo's monitor-->
+    <dubbo:monitor protocol="registry"/>
+
+    <!-- directly connect to provider to simulate the access to non-dubbo rest services -->
+    <dubbo:reference id="orderSearchApiService" interface="yspay.trade.order.api.IOrderSearchApiService" timeout="20000"/>
+<!--     <dubbo:reference id="orderSearchApiService" interface="yspay.trade.order.api.IOrderSearchApiService" timeout="20000"/> -->
+
+    <dubbo:reference id="testApiService" interface="yspay.trade.order.api.ITestApiService" timeout="20000"/>
+
+</beans>

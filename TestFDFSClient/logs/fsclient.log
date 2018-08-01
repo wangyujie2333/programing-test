@@ -1,0 +1,12 @@
+2017.01.09 at 18:38:06 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS 61 main - Start write file....
+2017.01.09 at 18:38:06 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 107 run - Worker{0} 开始写文件
+2017.01.09 at 18:38:06 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 107 run - Worker{1} 开始写文件
+2017.01.09 at 18:38:06 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 107 run - Worker{2} 开始写文件
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 107 run - Worker{3} 开始写文件
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 107 run - Worker{4} 开始写文件
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 152 run - Worker{3} write completed, total time(ms):118
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 152 run - Worker{2} write completed, total time(ms):120
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 152 run - Worker{4} write completed, total time(ms):119
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 152 run - Worker{0} write completed, total time(ms):144
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS$Worker 152 run - Worker{1} write completed, total time(ms):164
+2017.01.09 at 18:38:07 CST INFO  com.yspay.fstest.client.FSTestClientFastDFS 81 main - Complete all...., total time(ms):169

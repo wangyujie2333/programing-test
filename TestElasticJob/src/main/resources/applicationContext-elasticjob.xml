@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:reg="http://www.dangdang.com/schema/ddframe/reg"
+    xmlns:job="http://www.dangdang.com/schema/ddframe/job"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/util 
+                        http://www.springframework.org/schema/util/spring-util.xsd
+                        http://www.dangdang.com/schema/ddframe/reg
+                        http://www.dangdang.com/schema/ddframe/reg/reg.xsd
+                        http://www.dangdang.com/schema/ddframe/job
+                        http://www.dangdang.com/schema/ddframe/job/job.xsd
+                        ">
+    <!--配置作业注册中心   -->
+    <reg:zookeeper id="regCenterJob" server-lists="10.213.24.37:2181" 
+    	namespace="yspay-test-job" base-sleep-time-milliseconds="1000" 
+    	max-sleep-time-milliseconds="3000" max-retries="3" />
+     
+    <!-- 配置作业   
+    <job:simple id="test-simple-myjob" class="com.yspay.test.job.simplejob.MyElasticJob" 
+    	registry-center-ref="regCenterJob" cron="*/30 * * * * ?" 
+    	sharding-total-count="1" sharding-item-parameters="0=A" overwrite="true"/>
+    -->
+    
+    <!-- 单个服务器   
+    <job:simple id="test-simple" class="com.yspay.test.job.simplejob.ServerExecuteJob" 
+    	registry-center-ref="regCenterJob" cron="*/30 * * * * ?" 
+    	sharding-total-count="2" sharding-item-parameters="0=A,1=B" overwrite="true"/>
+       -->
+
+    <!-- 配置数据流作业-->
+    <job:dataflow id="test-dataflow" class="com.yspay.test.job.dataflow.ServerDataflowJob" 
+    	registry-center-ref="regCenterJob" cron="0/30 * * * * ?" 
+    	sharding-total-count="2" sharding-item-parameters="0=A,1=B" overwrite="true"/>
+
+</beans>

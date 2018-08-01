@@ -1,0 +1,188 @@
+body{background-color: #ccc;}
+html{padding:0; margin:0;font: 14px/1.5 "Microsoft YaHei", Arial, "宋体", "黑体"; color:#666;}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin: 0; padding: 0 }
+h1, h2, h3, h4, h5, h6 { font-size: 100% }
+address, cite, dfn, em, var ,i { font-style: normal }
+ul, ol, dl,li { list-style: none }
+a { text-decoration: none !important; outline: none ;cursor: pointer; color:#333;}
+img { border: 0 }
+button, input, select, textarea { font-size: 100%;}
+table { border-collapse: collapse; border-spacing: 0 }
+.clearfix{*zoom:1;}
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0;}
+.clear { display:block; height:0; overflow:hidden; clear:both; }
+.fl{float: left;*display: inline;}
+.fr{float: right;*display: inline;}
+.ect{text-overflow:ellipsis; overflow: hidden; white-space: nowrap;}
+.wrap{ width:620px;margin: 0 auto; padding: 10px; }
+.msg_wrap{position: relative;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    height: 68px;
+    margin: 4px 0 4px;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.15) inset;
+}
+.msg_wrap textarea{
+	width: 100%;
+    height: 68px;
+    border: 0;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    flex-direction: column;
+    resize: auto;
+    cursor: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font: 13.3333px Arial;
+    outline: none;
+    resize: none;
+    line-height: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.showparam{
+	 
+}
+.sendid{
+	border: 1px solid #ccc;
+	width:40%;
+	padding: 6px 5px;
+	float: left;
+}
+.connect{
+	float: right;
+	padding: 4px 5px;
+	color: #fff;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
+	background: #ff8140;
+    border: 1px solid #f77c3d;
+    border-radius: 2px;
+    line-height: 20px;
+}
+.connect:hover{
+	background: #f7671d;
+    border: 1px solid #f06923;
+}
+.ml{margin-left: 10px;}
+.wrap_top{
+border-top-left-radius:4px;
+border-top-right-radius:4px;
+	padding: 10px 10px;
+	background-color: #fff;
+}
+.floor3{
+	margin-bottom:10px;
+	padding: 10px;
+	background-color: #fff;
+	min-height: 300px;
+	height: 300px;
+	overflow-y: auto;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.15) inset;
+}
+.floor3 li{
+	height: auto;
+	line-height: 30px;
+	
+}
+.floor3 ul{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.idshow{
+	color: #ff8140
+}
+
+/*showinfo*/
+.page{
+	width: 600px;
+	padding:0 10px;
+	background-color: #fff;
+}
+
+.title{
+	height:40px;
+	line-height: 40px;
+	font-weight: normal;
+	border-bottom: 1px solid #f7671d;
+	font-size: 18px;
+	text-align: center;
+}
+.content li{
+	height: 36px;
+	line-height: 36px;
+}
+
+.param1,.param2,.param3{
+	float: left;
+}
+ .param1{
+ 	position: relative;
+	width: 26%;
+	padding-left:10px;
+}
+ .param2,.param3{
+ 	position: relative;
+	text-align: center;
+}
+.param2{
+	width: 48%
+}
+.param3{
+	width: 22%;
+}
+.content-title{
+	color: #333;
+	height: 36px;
+	line-height: 36px;
+	background-color: #f4f4f4;
+}
+.param1:after,.param2:after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 20px;
+	background-color: #f7671d;
+	right: 0;
+	top: 8px;
+}
+.closeBtn{
+	margin-top: 5px;
+	display: inline-block;
+	padding: 2px 5px;
+	color: #fff;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.25);
+	background: #ff8140;
+    border: 1px solid #f77c3d;
+    border-radius: 2px;
+    line-height: 20px;
+}
+.closeBtn:hover{
+	background: #f7671d;
+    border: 1px solid #f06923;
+}
+.style1{
+	padding-top: 29px;
+    padding-bottom: 29px;
+}
+.showparam{
+	padding:5px;
+	height:68px;
+	width: 88%;
+	float: left;
+	 border-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.15) inset;
+    resize: none;
+    line-height: 18px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.msg_wrap2{
+	margin-top:4px;
+}

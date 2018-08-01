@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">    
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >           
+	<appender name="myConsole" class="org.apache.log4j.ConsoleAppender">     
+		<layout class="org.apache.log4j.PatternLayout">   
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n"/>     
+		</layout>     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="info" />     
+			<param name="levelMax" value="error" />      
+		</filter>     
+	</appender>     
+     
+	<appender name="debug" class="org.apache.log4j.RollingFileAppender">   
+		<layout class="org.apache.log4j.PatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="D:/work/log/tfs/debug.log" /><!-- 设置日志输出文件名 -->    
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="10MB" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="DEBUG" />     
+			<param name="levelMax" value="DEBUG" />       
+		</filter>    
+	</appender>     
+       
+	<appender name="info" class="org.apache.log4j.RollingFileAppender">   
+		<layout class="org.apache.log4j.PatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="D:/work/log/tfs/info.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="10MB" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="INFO" />     
+			<param name="levelMax" value="INFO" />       
+		</filter>    
+	</appender>    
+	
+	<appender name="error" class="org.apache.log4j.RollingFileAppender">   
+		<layout class="org.apache.log4j.PatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="D:/work/log/tfs/error.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="10MB" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="ERROR" />     
+			<param name="levelMax" value="ERROR" />       
+		</filter>    
+	</appender>
+   
+	<!-- 根logger的设置-->     
+	<root> 
+		<level class="org.apache.log4j.Level" value="debug">     
+		</level> 
+		<appender-ref ref="myConsole"/>
+		<appender-ref ref="debug"/> 
+		<appender-ref ref="info"/>  
+		<appender-ref ref="error"/>     
+	</root>     
+</log4j:configuration>

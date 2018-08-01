@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >           
+	<appender name="myConsole" class="org.apache.log4j.ConsoleAppender">     
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n"/>     
+		</layout>     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="debug" />     
+			<param name="levelMax" value="error" />      
+		</filter>     
+	</appender>     
+     
+	<appender name="debug" class="hikefa.core.util.log4j.MyDailyRollingFileAppender">   
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="${log4jpath}/debug.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="${filter.log4j.maxfilesize}" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="DEBUG" />     
+			<param name="levelMax" value="DEBUG" />       
+		</filter>    
+	</appender>     
+       
+	<appender name="info" class="hikefa.core.util.log4j.MyDailyRollingFileAppender">   
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="${log4jpath}/info.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="${filter.log4j.maxfilesize}" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="INFO" />     
+			<param name="levelMax" value="INFO" />       
+		</filter>    
+	</appender> 
+	
+	<appender name="monitorApiMsgLog" class="hikefa.core.util.log4j.MyDailyRollingFileAppender">   
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="${log4jpath}/time.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="${filter.log4j.maxfilesize}" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="INFO" />     
+			<param name="levelMax" value="INFO" />       
+		</filter>    
+	</appender>   
+	   
+	<appender name="error" class="hikefa.core.util.log4j.MyDailyRollingFileAppender">   
+		<layout class="hikefa.core.util.log4j.ExPatternLayout">     
+			<param name="ConversionPattern"        
+				value="%d{yyyy-MM-dd HH\:mm\:ss\:SSS}\:%t(%T) %l - \n%p\: %m%n" />     
+		</layout>       
+		<param name="File" value="${log4jpath}/error.log" /><!-- 设置日志输出文件名 -->      
+		<param name="encoding" value="GBK" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" /> 
+		<param name="MaxFileSize" value="${filter.log4j.maxfilesize}" /> 
+		<param name="MaxBackupIndex" value="-1" />     
+		<!--过滤器设置输出的级别-->     
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">     
+			<param name="levelMin" value="ERROR" />     
+			<param name="levelMax" value="ERROR" />       
+		</filter>    
+	</appender>
+	<!-- 指定logger的设置，additivity指示是否遵循缺省的继承机制-->    
+	<logger name="monitorApiMsgLog" additivity="false">     
+		<priority value ="info"/>       
+		<appender-ref ref="monitorApiMsgLog" />       
+	</logger>  
+	<!-- 根logger的设置-->     
+	<root> 
+		<level class="org.apache.log4j.Level" value="${filter.log4j.rootLogger}">     
+		</level> 
+		<appender-ref ref="myConsole"/>
+		<appender-ref ref="debug"/> 
+		<appender-ref ref="info"/>  
+		<appender-ref ref="error"/>     
+	</root>     
+</log4j:configuration>
