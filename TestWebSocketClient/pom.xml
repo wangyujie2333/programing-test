@@ -14,10 +14,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.build.jdk.version>1.7</project.build.jdk.version>
+		<project.build.jdk.version>1.8</project.build.jdk.version>
 		<maven.test.skip>true</maven.test.skip>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
-		<filters.base.path>src/filters</filters.base.path>
 	</properties>
 	<dependencies>
 		<dependency>
