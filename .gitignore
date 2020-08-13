@@ -35,3 +35,8 @@ hs_err_pid*
 /.idea/dictionaries/jimmy.xml
 /.idea/codeStyles/Project.xml
 /.idea/vcs.xml
+/SpringBoot/mvnw
+!/SpringBoot/mvnw.cmd
+SpringBoot/
+TestHibernate/target/generated-sources/
+TestHystrixCollapse/target/generated-sources/
