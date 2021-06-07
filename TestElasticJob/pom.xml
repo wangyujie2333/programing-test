@@ -14,7 +14,7 @@
 		<spring.version>4.3.4.RELEASE</spring.version><!-- 3.2.8 -->
 		<elasticjob.version>2.0.5</elasticjob.version>
 		<curator.version>2.10.0</curator.version>
-		<logback.version>1.1.2</logback.version>
+		<logback.version>1.2.0</logback.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 	</properties>
 
