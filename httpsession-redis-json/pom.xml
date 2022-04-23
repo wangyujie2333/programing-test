@@ -23,7 +23,7 @@
 		<mybatis.version>3.4.6</mybatis.version>
 		<mybatis.pagehelper.version>5.0.4</mybatis.pagehelper.version>
 		<mybatis-spring.version>1.3.2</mybatis-spring.version>
-		<springframework.version>4.3.10.RELEASE</springframework.version>
+		<springframework.version>5.3.19</springframework.version>
 		<netty3.version>3.7.0.Final</netty3.version>
 		<netty4.version>4.0.35.Final</netty4.version>
 		<jetty.version>6.1.26</jetty.version>
