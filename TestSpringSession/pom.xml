@@ -19,7 +19,7 @@
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<filters.base.path>src/filters</filters.base.path>
 		<spring-framework.version>3.2.5.RELEASE</spring-framework.version>
-		<jackson>2.6.7</jackson>
+		<jackson>2.12.7.1</jackson>
 		<beanutils>1.9.2</beanutils>
 	</properties>
 	<dependencyManagement>
